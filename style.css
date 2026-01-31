@@ -1,0 +1,290 @@
+/* Theme variables */
+:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --primary: #22c55e;
+  --danger: #ef4444;
+  --accent: #6366f1;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+}
+/* Light theme overrides */
+.light {
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #020617;
+  --muted: #64748b;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg), #020617);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--text);
+  transition: background 0.3s ease;
+}
+
+/* Container styling */
+.app {
+  width: 100%;
+  max-width: 500px;
+  background: var(--card);
+  padding: 28px;
+  border-radius: 22px;
+  box-shadow: 0 35px 90px rgba(0, 0, 0, .55);
+}
+
+.toggle {
+  text-align: right;
+  font-size: 13px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+header span {
+  color: var(--primary);
+}
+
+header p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 140px;
+  gap: 10px;
+  margin: 18px 0;
+}
+
+input,
+select {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: #1e293b;
+  color: white;
+  width: 100%;
+}
+
+.light input,
+.light select {
+  background: #e2e8f0;
+  color: #020617;
+}
+
+/* Action buttons */
+#submitBtn {
+  grid-column: span 2;
+  background: var(--primary);
+  color: #fff;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+#submitBtn:hover {
+  background: #1d8f48;
+}
+
+#cancelBtn {
+  grid-column: span 2;
+  background: #475569;
+  color: #fff;
+  padding: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: none;
+  display: none;
+  margin-top: -5px;
+  transition: background 0.2s ease;
+}
+#cancelBtn:hover {
+  background: #2f384d;
+}
+
+#note {
+  grid-column: span 2;
+  display: none;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.progress {
+  height: 10px;
+  background: #020617;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.progress div {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: .4s;
+}
+
+.filters {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.filters button {
+  flex: 1;
+  background: #020617;
+  color: var(--muted);
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.filters .active {
+  background: var(--accent);
+  color: #fff;
+}
+.filters button:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Add subtle hover effect on expense items */
+li {
+  background: #020617;
+  padding: 14px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  border-left: 5px solid transparent;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+li.is-editing {
+  border-left-color: var(--accent);
+  background: #1e293b;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.expense-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount {
+  color: var(--danger);
+  font-weight: bold;
+}
+
+.meta {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.note {
+  font-size: 12px;
+  margin-top: 4px;
+  color: var(--accent);
+}
+
+.badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: var(--accent);
+  color: #fff;
+  margin-left: 6px;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+.actions button {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+}
+.del {
+  background: var(--danger);
+}
+.edit {
+  background: var(--accent);
+}
+
+.popup {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: var(--primary);
+  color: white;
+  padding: 14px 18px;
+  border-radius: 12px;
+  display: none;
+  z-index: 100;
+}
+
+.snackbar {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e293b;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 12px;
+  display: none;
+  align-items: center;
+  gap: 12px;
+  z-index: 101;
+}
+.snackbar button {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Error message styling */
+.error-message {
+  grid-column: span 2;
+  color: var(--danger);
+  font-size: 12px;
+  margin-top: 4px;
+}
